@@ -1,0 +1,29 @@
+﻿# This mod allows the basic food company to build other grain farms (wheat, rice, maize, rye) via industry rights charters
+
+building_wheat_farm = {
+	buildable_by_companytype = {
+		building_wheat_farm
+		company_basic_food_industry
+	}
+}
+
+building_rice_farm = {
+	buildable_by_companytype = {
+		building_rice_farm
+		company_basic_food_industry
+	}
+}
+
+building_maize_farm = {
+	buildable_by_companytype = {
+		building_maize_farm
+		company_basic_food_industry
+	}
+}
+
+building_rye_farm = {
+	buildable_by_companytype = {
+		building_rye_farm
+		company_basic_food_industry
+	}
+}
