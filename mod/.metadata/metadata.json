@@ -1,15 +1,14 @@
 {
-  "name": "Basic Food Company Extended",
-  "id": "com.github.xziyu6.basic-food-company-extended",
-  "version": "1.0.0",
-  "game_id": "victoria3",
-  "picture": "thumbnail.png",
-  "supported_game_version": "1.12.*",
-  "short_description": "Extends the Basic Food Company with all grain farm types as available industry rights",
-  "tags": [
-  ],
-  "relationships": [],
-  "game_custom_data": {
-    "multiplayer_synchronized": true
-  }
+"name" : "Basic Food Company Extended",
+"id" : "com.github.xziyu6.basic-food-company-extended",
+"version" : "1.0.0",
+"game_id" : "victoria3",
+"picture" : "thumbnail.png",
+"supported_game_version" : "1.8.*",
+"short_description" : "Description of your Mod",
+"tags" : [],
+"relationships" : [],
+"game_custom_data" : {
+    "multiplayer_synchronized" : true
+}
 }

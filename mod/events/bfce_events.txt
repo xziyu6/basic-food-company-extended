@@ -1,0 +1,9 @@
+﻿namespace = bfce_error_suppression
+
+bfce_error_suppression.0001 = {
+  hidden = yes
+  orphan = yes
+  trigger = {
+    exists = global_var:bfce_is_loaded
+  }
+}
