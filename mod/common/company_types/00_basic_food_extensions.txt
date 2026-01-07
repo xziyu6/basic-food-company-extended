@@ -1,0 +1,10 @@
+# Extend basic_food company to add all grain farm types as available industry rights
+
+INJECT:company_basic_food = {
+	extension_building_types = {
+		building_rye_farm
+		building_rice_farm
+		building_maize_farm
+		building_millet_farm
+	}
+}
