@@ -59,12 +59,20 @@ jobs:
       - name: Validate tags
         if: ${{ inputs.MOD_TAGS != '' }}
         run: |
-          allowed="Alternative History, Balance, Cultures and Religions, Diplomacy, Events, Expansion, Economy and Buildings, Fixes, Flags, Gameplay, Graphics, Historical, Interest Groups, Journal Entries, Map, New Nations, Pops, Sound, Technologies, Total Conversion, Trade, Translation, Utilities"
+          # Keep the list comma-delimited without padding spaces so exact matches succeed
+          allowed="Alternative History,Balance,Cultures and Religions,Diplomacy,Events,Expansion,Economy and Buildings,Fixes,Flags,Gameplay,Graphics,Historical,Interest Groups,Journal Entries,Map,New Nations,Pops,Sound,Technologies,Total Conversion,Trade,Translation,Utilities"
           IFS=',' read -ra tags <<< "${{ inputs.MOD_TAGS }}"
           for tag in "${tags[@]}"; do
             clean=$(echo "$tag" | xargs)
             [[ ",$allowed," == *",$clean,"* ]] || { echo "::error::Invalid tag '$clean'"; exit 1; }
           done
+          # Build a JSON-safe, trimmed tag list for later steps
+          tag_json=""
+          for tag in "${tags[@]}"; do
+            clean=$(echo "$tag" | xargs)
+            tag_json+="\"$clean\"," 
+          done
+          echo "TAGS_JSON=${tag_json%, }" >> "$GITHUB_ENV"
 
       - name: Replace placeholders
         env:
@@ -90,6 +98,7 @@ jobs:
           MOD_VERSION: ${{ inputs.MOD_VERSION }}
           MOD_TAGS: ${{ inputs.MOD_TAGS }}
           MOD_PICTURE: ${{ inputs.MOD_PICTURE }}
+          TAGS_JSON: ${{ env.TAGS_JSON }}
         run: |
             # Update mod/.metadata/metadata.json
             file="mod/.metadata/metadata.json"
@@ -108,7 +117,7 @@ jobs:
             "picture" : "$MOD_PICTURE",
             "supported_game_version" : "1.8.*",
             "short_description" : "Description of your Mod",
-            "tags" : [${MOD_TAGS}],
+            "tags" : [${TAGS_JSON}],
             "relationships" : [],
             "game_custom_data" : {
                 "multiplayer_synchronized" : true
