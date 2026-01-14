@@ -64,7 +64,7 @@ jobs:
         if: ${{ inputs.MOD_TAGS != '' }}
         run: |
           # Keep the list comma-delimited without padding spaces so exact matches succeed
-          allowed="Alternative History,Balance,Cultures and Religions,Diplomacy,Events,Expansion,Economy and Buildings,Fixes,Flags,Gameplay,Graphics,Historical,Interest Groups,Journal Entries,Map,New Nations,Pops,Sound,Technologies,Total Conversion,Trade,Translation,Utilities"
+          allowed="Alternative History,Balance,Cultures And Religions,Diplomacy,Events,Expansion,Economy And Buildings,Fixes,Flags,Gameplay,Graphics,Historical,Interest Groups,Journal Entries,Map,New Nations,Pops,Sound,Technologies,Total Conversion,Trade,Translation,Utilities"
           IFS=',' read -ra tags <<< "${{ inputs.MOD_TAGS }}"
           for tag in "${tags[@]}"; do
             clean=$(echo "$tag" | xargs)
