@@ -76,7 +76,7 @@ jobs:
             clean=$(echo "$tag" | xargs)
             tag_json+="\"$clean\"," 
           done
-          echo "TAGS_JSON=${tag_json%, }" >> "$GITHUB_ENV"
+          echo "TAGS_JSON=${tag_json%,}" >> "$GITHUB_ENV"
 
       - name: Replace placeholders
         env:
