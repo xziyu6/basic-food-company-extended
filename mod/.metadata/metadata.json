@@ -6,7 +6,7 @@
 "picture" : "thumbnail.png",
 "supported_game_version" : "1.12.*",
 "short_description" : "Extends the Basic Food Company with all grain farm types as available industry rights",
-"tags" : ["Gameplay","Economy and Buildings",],
+"tags" : ["Gameplay","Economy and Buildings"],
 "relationships" : [],
 "game_custom_data" : {
     "multiplayer_synchronized" : true
